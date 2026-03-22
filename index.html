@@ -4,9 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SnapGPX</title>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get('code');
+        const scope = params.get('scope');
+        const error = params.get('error');
+
+        if (code) {
+            window.location.href = 'snapgpx://strava-callback?code=' + code + (scope ? '&scope=' + scope : '');
+        } else if (error) {
+            window.location.href = 'snapgpx://strava-callback?error=' + error;
+        }
+    </script>
 </head>
 <body>
     <h1>SnapGPX</h1>
     <p>Export your Apple Watch workouts to GPX.</p>
+    <noscript><p>Redirecting to SnapGPX app...</p></noscript>
 </body>
 </html>
