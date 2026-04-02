@@ -3,23 +3,437 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SnapGPX</title>
-    <script>
-        const params = new URLSearchParams(window.location.search);
-        const code = params.get('code');
-        const scope = params.get('scope');
-        const error = params.get('error');
+    <title>SnapGPX — Export Apple Health Workouts to GPX</title>
+    <meta name="description" content="Export your Apple Watch and iPhone workouts to GPX files. Upload to Strava with one tap. Free, private, no account required.">
+    <meta name="theme-color" content="#2D6A4F" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#52B788" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📍</text></svg>">
 
-        if (code) {
-            window.location.href = 'snapgpx://strava-callback?code=' + code + (scope ? '&scope=' + scope : '');
-        } else if (error) {
-            window.location.href = 'snapgpx://strava-callback?error=' + error;
-        }
+    <!-- Open Graph -->
+    <meta property="og:title" content="SnapGPX — Export Workouts to GPX">
+    <meta property="og:description" content="Export your Apple Watch workouts to GPX. Upload to Strava with one tap.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://snapgpx.github.io">
+
+    <!-- Strava OAuth callback handler (must remain on this page) -->
+    <script>
+        (function() {
+            var params = new URLSearchParams(window.location.search);
+            var code = params.get('code');
+            var scope = params.get('scope');
+            var error = params.get('error');
+            if (code) {
+                window.location.href = 'snapgpx://strava-callback?code=' + encodeURIComponent(code) + (scope ? '&scope=' + encodeURIComponent(scope) : '');
+            } else if (error) {
+                window.location.href = 'snapgpx://strava-callback?error=' + encodeURIComponent(error);
+            }
+        })();
     </script>
+
+    <style>
+        :root {
+            color-scheme: light dark;
+            --bg: #ffffff;
+            --bg-alt: #f5f5f7;
+            --fg: #1d1d1f;
+            --muted: #6e6e73;
+            --accent: #40916C;
+            --accent-hover: #357A5B;
+            --card-bg: #ffffff;
+            --card-border: #e5e5e7;
+            --card-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #000000;
+                --bg-alt: #1c1c1e;
+                --fg: #f5f5f7;
+                --muted: #a1a1a6;
+                --accent: #52B788;
+                --accent-hover: #6BC99A;
+                --card-bg: #1c1c1e;
+                --card-border: #38383a;
+                --card-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Nav */
+        nav {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--card-border);
+            backdrop-filter: saturate(180%) blur(20px);
+            background: rgba(255,255,255,0.72);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        @media (prefers-color-scheme: dark) {
+            nav { background: rgba(0,0,0,0.72); }
+        }
+        nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--fg);
+            text-decoration: none;
+        }
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-left: 1.5rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--fg); }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 5rem 1.5rem 4rem;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: var(--bg-alt);
+            color: var(--muted);
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.35rem 0.85rem;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.02em;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+        .hero h1 span { color: var(--accent); }
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--muted);
+            max-width: 520px;
+            margin: 0 auto 2rem;
+        }
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--fg);
+            color: var(--bg);
+            padding: 0.85rem 1.75rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        .hero-cta:hover { transform: scale(1.03); opacity: 0.9; }
+        .hero-cta svg { width: 20px; height: 20px; }
+        .hero-cta.coming-soon {
+            cursor: default;
+            opacity: 0.85;
+        }
+        .hero-cta.coming-soon:hover { transform: none; opacity: 0.85; }
+
+        /* Scroll offset for sticky nav */
+        [id] { scroll-margin-top: 4rem; }
+
+        /* Features */
+        .features {
+            padding: 3rem 0 4rem;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+        }
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 1.75rem;
+            box-shadow: var(--card-shadow);
+        }
+        .feature-icon {
+            margin-bottom: 0.75rem;
+            color: var(--accent);
+        }
+        .feature-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+        .feature-card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+        .feature-card p {
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+
+        /* How it works */
+        .how-it-works {
+            padding: 3rem 0 4rem;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 1.85rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 2.5rem;
+        }
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+        @media (max-width: 700px) {
+            .steps { grid-template-columns: 1fr; gap: 3rem; }
+        }
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #fff;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        .steps h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        .steps p {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        .step-phone {
+            position: relative;
+            max-width: 220px;
+            margin: 0 auto 1.25rem;
+            border-radius: 36px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.1);
+            border: 8px solid #1a1a1c;
+            background: #000;
+        }
+        @media (prefers-color-scheme: dark) {
+            .step-phone {
+                box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
+                border-color: #2a2a2c;
+            }
+        }
+        /* Dynamic Island overlay */
+        .step-phone::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 72px;
+            height: 20px;
+            background: #1a1a1c;
+            border-radius: 20px;
+            z-index: 2;
+        }
+        @media (prefers-color-scheme: dark) {
+            .step-phone::after { background: #000; }
+        }
+        .step-phone img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* Privacy callout */
+        .privacy-callout {
+            background: var(--bg-alt);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 2rem 0 4rem;
+        }
+        .privacy-callout h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .privacy-callout p {
+            color: var(--muted);
+            max-width: 480px;
+            margin: 0 auto;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--card-border);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+        footer a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+        footer a:hover { text-decoration: underline; }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+        }
+    </style>
 </head>
 <body>
-    <h1>SnapGPX</h1>
-    <p>Export your Apple Watch workouts to GPX.</p>
-    <noscript><p>Redirecting to SnapGPX app...</p></noscript>
+
+<nav>
+    <div class="container">
+        <a href="/" class="nav-brand">SnapGPX</a>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How it works</a>
+            <a href="https://buca1821.github.io/gpx-exporter-privacy/">Privacy</a>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-badge">No account required</div>
+    <h1>Your workouts.<br><span>Your routes.</span><br>Your GPX files.</h1>
+    <p>Export Apple Watch and iPhone workouts to GPX with one tap. Upload to Strava instantly.</p>
+    <div class="hero-cta coming-soon">Coming soon on the App Store</div>
+</section>
+
+<section class="features container" id="features">
+    <h2 class="section-title">Everything you need</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg></div>
+            <h3>GPX Export</h3>
+            <p>Convert any Apple Health workout with GPS data to standard GPX format. Works with running, cycling, hiking, and more.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-6.22-8.56"/><path d="M21 3v6h-6"/></svg></div>
+            <h3>Strava Upload</h3>
+            <p>Connect your Strava account and upload workouts directly from the app. No file juggling needed.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M21 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3"/><path d="M21 16v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3"/><line x1="4" y1="12" x2="20" y2="12"/><polyline points="8 8 12 12 16 8"/></svg></div>
+            <h3>Bulk Export</h3>
+            <p>Select multiple workouts and export them all at once as a ZIP file. Perfect for backups and migrations.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon"><svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
+            <h3>Route Preview</h3>
+            <p>See your workout route on a map with elevation profile before exporting. Verify it's the right one.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+            <h3>Workout Stats</h3>
+            <p>View distance, duration, pace, elevation gain, and heart rate data at a glance.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <h3>Privacy First</h3>
+            <p>All data stays on your device. No servers, no tracking, no account required. Your workouts are yours.</p>
+        </div>
+    </div>
+</section>
+
+<section class="how-it-works container" id="how-it-works">
+    <h2 class="section-title">How it works</h2>
+    <div class="steps">
+        <div>
+            <div class="step-phone">
+                <picture>
+                    <source srcset="screenshots/step1-list.jpg" media="(prefers-color-scheme: dark)">
+                    <img src="screenshots/step1-list-light.jpg" alt="SnapGPX workout list showing running, cycling, walking, and hiking activities with distance, duration, and pace" loading="lazy">
+                </picture>
+            </div>
+            <div class="step-number">1</div>
+            <h3>Open SnapGPX</h3>
+            <p>Grant access to Apple Health and your workouts appear instantly.</p>
+        </div>
+        <div>
+            <div class="step-phone">
+                <picture>
+                    <source srcset="screenshots/step2-detail.jpg" media="(prefers-color-scheme: dark)">
+                    <img src="screenshots/step2-detail-light.jpg" alt="Workout detail view showing route on map with stats: distance, pace, calories, and elevation" loading="lazy">
+                </picture>
+            </div>
+            <div class="step-number">2</div>
+            <h3>Pick a workout</h3>
+            <p>See the route on a map, elevation profile, and all your stats at a glance.</p>
+        </div>
+        <div>
+            <div class="step-phone">
+                <picture>
+                    <source srcset="screenshots/step3-export.jpg" media="(prefers-color-scheme: dark)">
+                    <img src="screenshots/step3-export-light.jpg" alt="Export GPX and Upload to Strava menu options in workout detail view" loading="lazy">
+                </picture>
+            </div>
+            <div class="step-number">3</div>
+            <h3>Export or upload</h3>
+            <p>Download the GPX file, share it, or upload directly to Strava.</p>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="privacy-callout">
+        <h2>Your data never leaves your device</h2>
+        <p>SnapGPX reads workouts from Apple Health locally. No data is sent to any server unless you explicitly choose to upload to Strava.</p>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="https://buca1821.github.io/gpx-exporter-privacy/">Privacy Policy</a>
+            <a href="mailto:snapgpx@icloud.com">Contact</a>
+        </div>
+        <p>&copy; 2026 SnapGPX</p>
+    </div>
+</footer>
+
 </body>
 </html>
