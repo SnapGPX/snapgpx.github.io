@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SnapGPX — Export Apple Health Workouts to GPX</title>
-    <meta name="description" content="Export your Apple Watch and iPhone workouts to GPX files. Upload to Strava with one tap. Free, private, no account required.">
+    <meta name="description" content="Export your Apple Watch and iPhone workouts to GPX files. Upload to Strava with one tap. Private, no account required.">
     <meta name="theme-color" content="#2D6A4F" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#52B788" media="(prefers-color-scheme: dark)">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📍</text></svg>">
@@ -14,6 +14,9 @@
     <meta property="og:description" content="Export your Apple Watch workouts to GPX. Upload to Strava with one tap.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://snapgpx.github.io">
+    <meta property="og:image" content="https://snapgpx.github.io/screenshots/step2-detail.jpg">
+    <meta property="og:image:width" content="440">
+    <meta property="og:image:height" content="956">
 
     <!-- Strava OAuth callback handler (must remain on this page) -->
     <script>
@@ -325,7 +328,7 @@
 </head>
 <body>
 
-<nav>
+<nav aria-label="Main">
     <div class="container">
         <a href="/" class="nav-brand">SnapGPX</a>
         <div class="nav-links">
@@ -347,32 +350,32 @@
     <h2 class="section-title">Everything you need</h2>
     <div class="features-grid">
         <div class="feature-card">
-            <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg></div>
+            <div class="feature-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg></div>
             <h3>GPX Export</h3>
             <p>Convert any Apple Health workout with GPS data to standard GPX format. Works with running, cycling, hiking, and more.</p>
         </div>
         <div class="feature-card">
-            <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-6.22-8.56"/><path d="M21 3v6h-6"/></svg></div>
+            <div class="feature-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-6.22-8.56"/><path d="M21 3v6h-6"/></svg></div>
             <h3>Strava Upload</h3>
             <p>Connect your Strava account and upload workouts directly from the app. No file juggling needed.</p>
         </div>
         <div class="feature-card">
-            <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M21 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3"/><path d="M21 16v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3"/><line x1="4" y1="12" x2="20" y2="12"/><polyline points="8 8 12 12 16 8"/></svg></div>
+            <div class="feature-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3"/><path d="M21 16v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3"/><line x1="4" y1="12" x2="20" y2="12"/><polyline points="8 8 12 12 16 8"/></svg></div>
             <h3>Bulk Export</h3>
             <p>Select multiple workouts and export them all at once as a ZIP file. Perfect for backups and migrations.</p>
         </div>
         <div class="feature-card">
-            <div class="feature-icon"><svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
+            <div class="feature-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
             <h3>Route Preview</h3>
             <p>See your workout route on a map with elevation profile before exporting. Verify it's the right one.</p>
         </div>
         <div class="feature-card">
-            <div class="feature-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+            <div class="feature-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
             <h3>Workout Stats</h3>
             <p>View distance, duration, pace, elevation gain, and heart rate data at a glance.</p>
         </div>
         <div class="feature-card">
-            <div class="feature-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <div class="feature-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
             <h3>Privacy First</h3>
             <p>All data stays on your device. No servers, no tracking, no account required. Your workouts are yours.</p>
         </div>
