@@ -8,6 +8,32 @@
     <meta name="theme-color" content="#2D6A4F" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#52B788" media="(prefers-color-scheme: dark)">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📍</text></svg>">
+    <script>
+        (function() {
+            var supported = {
+                'es': 'es', 'ca': 'ca', 'de': 'de', 'fr': 'fr',
+                'it': 'it', 'ja': 'ja', 'ko': 'ko', 'pt': 'pt-BR',
+                'pt-br': 'pt-BR', 'zh': 'zh-Hans', 'zh-hans': 'zh-Hans',
+                'zh-hant': 'zh-Hant', 'zh-tw': 'zh-Hant', 'zh-hk': 'zh-Hant'
+            };
+            var path = window.location.pathname;
+            if (path === '/privacy/' || path === '/privacy') {
+                var langs = (navigator.languages || [navigator.language || '']);
+                for (var i = 0; i < langs.length; i++) {
+                    var lang = langs[i].toLowerCase();
+                    if (supported[lang]) {
+                        window.location.replace('/privacy/' + supported[lang] + '/');
+                        return;
+                    }
+                    var base = lang.split('-')[0];
+                    if (supported[base]) {
+                        window.location.replace('/privacy/' + supported[base] + '/');
+                        return;
+                    }
+                }
+            }
+        })();
+    </script>
     <style>
         :root {
             color-scheme: light dark;
