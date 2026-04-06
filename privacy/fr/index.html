@@ -63,11 +63,13 @@
             font-size: 1.25rem;
             font-weight: 700;
             color: var(--fg);
-            text-decoration: none;
+            text-decoration: underline;
+            text-underline-offset: 2px;
         }
         .nav-links a {
             color: var(--muted);
-            text-decoration: none;
+            text-decoration: underline;
+            text-underline-offset: 2px;
             font-size: 0.9rem;
             margin-left: 1.5rem;
             transition: color 0.2s;
@@ -113,9 +115,10 @@
         }
         .policy a {
             color: var(--accent);
-            text-decoration: none;
+            text-decoration: underline;
+            text-underline-offset: 2px;
         }
-        .policy a:hover { text-decoration: underline; }
+        .policy a:hover { opacity: 0.8; }
 
         footer {
             border-top: 1px solid var(--card-border);
@@ -126,7 +129,8 @@
         }
         footer a {
             color: var(--muted);
-            text-decoration: none;
+            text-decoration: underline;
+            text-underline-offset: 2px;
         }
         footer a:hover { text-decoration: underline; }
     </style>
