@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개인정보 처리방침 — SnapGPX</title>
+    <meta name="description" content="SnapGPX 개인정보 처리방침. 운동 데이터, HealthKit 접근 및 Strava 연동에 대한 처리 방식을 안내합니다.">
+    <meta name="theme-color" content="#2D6A4F" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#52B788" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📍</text></svg>">
+    <style>
+        :root {
+            color-scheme: light dark;
+            --bg: #ffffff;
+            --bg-alt: #f5f5f7;
+            --fg: #1d1d1f;
+            --muted: #6e6e73;
+            --accent: #2D7A53;
+            --card-border: #e5e5e7;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #000000;
+                --bg-alt: #1c1c1e;
+                --fg: #f5f5f7;
+                --muted: #a1a1a6;
+                --accent: #52B788;
+                --card-border: #38383a;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        nav {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--card-border);
+            backdrop-filter: saturate(180%) blur(20px);
+            background: rgba(255,255,255,0.72);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        @media (prefers-color-scheme: dark) {
+            nav { background: rgba(0,0,0,0.72); }
+        }
+        nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 960px;
+        }
+        .nav-brand {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--fg);
+            text-decoration: none;
+        }
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-left: 1.5rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--fg); }
+
+        .policy {
+            padding: 3rem 0 4rem;
+        }
+        .policy h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+        .policy .updated {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 2.5rem;
+        }
+        .policy h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        .policy p {
+            color: var(--muted);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        .policy ul {
+            color: var(--muted);
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            font-size: 0.95rem;
+        }
+        .policy li {
+            margin-bottom: 0.5rem;
+        }
+        .policy strong {
+            color: var(--fg);
+        }
+        .policy a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .policy a:hover { text-decoration: underline; }
+
+        footer {
+            border-top: 1px solid var(--card-border);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+        footer a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<nav aria-label="Main">
+    <div class="container" style="max-width:960px">
+        <a href="/" class="nav-brand">SnapGPX</a>
+        <div class="nav-links">
+            <a href="/#features">Features</a>
+            <a href="/#strava">Strava</a>
+            <a href="/#how-it-works">How it works</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <article class="policy">
+        <h1>개인정보 처리방침</h1>
+        <p class="updated">최종 수정일: 2026년 4월 5일</p>
+
+        <h2>개요</h2>
+        <p>SnapGPX("본 앱")는 Apple 건강 앱에 기록된 운동을 GPX 파일로 내보낼 수 있게 해줍니다. 사용자의 개인정보는 저희에게 매우 중요합니다. 본 방침은 앱이 어떤 데이터에 접근하며, 어떻게 사용되고, 사용자에게 어떤 선택권이 있는지 설명합니다.</p>
+
+        <h2>접근하는 데이터</h2>
+        <p>본 앱은 다음과 같은 Apple HealthKit 데이터에 대해 읽기 전용 접근을 요청합니다:</p>
+        <ul>
+            <li><strong>운동 기록</strong> — 활동 유형, 시간, 거리, 소모 칼로리.</li>
+            <li><strong>운동 경로 데이터</strong> — 운동에 연결된 GPS 좌표, 고도, 타임스탬프.</li>
+        </ul>
+        <p>본 앱은 심박수, 걸음 수, 신체 측정 데이터 또는 운동 및 경로 이외의 HealthKit 데이터 유형에는 접근하지 <strong>않습니다</strong>.</p>
+
+        <h2>데이터 사용 방식</h2>
+        <ul>
+            <li>운동 및 경로 데이터는 <strong>오직</strong> 앱 내에서 운동을 표시하고, 사용자가 내보내기를 선택할 때 GPX 파일을 생성하는 데에만 사용됩니다.</li>
+            <li>모든 데이터 처리는 <strong>전적으로 사용자의 기기에서</strong> 이루어집니다.</li>
+            <li>본 앱은 건강 또는 위치 데이터를 외부 서버나 제3자에게 전송하지 <strong>않습니다</strong>.</li>
+        </ul>
+
+        <h2>Strava 연동</h2>
+        <p>SnapGPX는 운동을 Strava에 직접 업로드할 수 있는 선택적 연동 기능을 제공합니다. 데이터 처리 방식은 다음과 같습니다:</p>
+        <ul>
+            <li>SnapGPX는 인증을 위해 Strava의 <strong>OAuth 2.0</strong>을 사용합니다. 사용자의 Strava 자격 증명은 SnapGPX에서 열람하거나 저장하지 않습니다.</li>
+            <li>OAuth 토큰은 기기의 <strong>Keychain</strong>에 안전하게 저장됩니다. 토큰은 외부 서버로 전송되지 않습니다.</li>
+            <li>SnapGPX는 <strong>Strava에 GPX 데이터를 업로드</strong>하기만 합니다. 사용자의 Strava 계정에서 데이터를 읽거나, 다운로드하거나, 저장하지 않습니다.</li>
+            <li>앱 설정에서 언제든지 Strava 계정 연결을 해제할 수 있습니다. 연결 해제 시 기기에 저장된 <strong>모든 토큰이 즉시 삭제</strong>됩니다.</li>
+            <li>SnapGPX는 <strong>백엔드 서버가 없습니다</strong>. 모든 처리는 사용자의 iPhone에서 이루어집니다.</li>
+        </ul>
+
+        <h2>데이터 저장 및 보관</h2>
+        <ul>
+            <li>본 앱은 사용자의 건강 데이터를 자체 데이터베이스에 저장하지 않습니다. 앱을 열 때마다 Apple HealthKit에서 직접 데이터를 읽어옵니다.</li>
+            <li>내보낸 GPX 파일은 사용자가 공유하거나 저장하기로 선택한 위치(예: 파일, AirDrop, 이메일)에만 저장됩니다. 앱은 사본을 보관하지 않습니다.</li>
+            <li>화면 표시 설정 외에는 세션 간에 앱 내에 데이터가 유지되지 않습니다.</li>
+        </ul>
+
+        <h2>분석</h2>
+        <p>SnapGPX는 익명의 개인정보 친화적 사용 분석을 위해 <strong>TelemetryDeck</strong>을 사용합니다. 이를 통해 어떤 기능이 사용되는지 파악하고 앱을 개선하는 데 도움이 됩니다.</p>
+        <ul>
+            <li>TelemetryDeck은 <strong>익명 사용 신호</strong>(예: 방문한 화면, 사용한 내보내기 옵션)를 수집합니다. 개인 데이터는 수집되지 않습니다.</li>
+            <li>고유 사용자 수를 집계하기 위해 <strong>해시된 기기 식별자</strong>가 사용됩니다. 이 식별자는 사용자 또는 기기와 연결할 수 없습니다.</li>
+            <li>건강 데이터, 운동 데이터, GPS 좌표 또는 위치 정보는 TelemetryDeck으로 전송되지 않습니다.</li>
+            <li>TelemetryDeck은 앱이나 웹사이트 간에 사용자를 추적하지 <strong>않습니다</strong>. 광고 SDK는 포함되어 있지 않습니다.</li>
+            <li>자세한 내용은 <a href="https://telemetrydeck.com/privacy/">TelemetryDeck 개인정보 처리방침</a>을 참조하세요.</li>
+        </ul>
+
+        <h2>제3자 서비스</h2>
+        <p>본 앱은 다음과 같은 제3자 서비스를 사용합니다:</p>
+        <ul>
+            <li><strong>TelemetryDeck</strong> — 익명 사용 분석(위 참조).</li>
+            <li><strong>Strava</strong> — OAuth를 통한 선택적 운동 업로드(위 참조).</li>
+        </ul>
+        <p>광고 또는 추적 SDK는 포함되어 있지 않습니다. 데이터는 제3자에게 판매되지 않습니다.</p>
+
+        <h2>GPX 내보내기의 위치 데이터</h2>
+        <p>GPX 파일에는 운동 경로의 GPS 좌표가 포함되어 있습니다. 내보낸 후 해당 파일은 사용자의 관리 하에 있습니다. GPX 파일을 공유할 때 운동한 장소가 노출될 수 있으므로 주의하시기 바랍니다.</p>
+
+        <h2>아동 개인정보 보호</h2>
+        <p>본 앱은 13세 미만의 아동을 대상으로 하지 않습니다. 아동의 개인 정보를 의도적으로 수집하지 않습니다.</p>
+
+        <h2>사용자 선택권</h2>
+        <ul>
+            <li>기기의 <strong>설정 &gt; 개인정보 보호 및 보안 &gt; 건강</strong>에서 언제든지 HealthKit 접근 권한을 철회할 수 있습니다.</li>
+            <li>앱 설정에서 언제든지 Strava 연결을 해제할 수 있습니다.</li>
+            <li>접근 권한을 철회하면 앱에서 운동을 표시하거나 내보낼 수 없게 됩니다.</li>
+        </ul>
+
+        <h2>본 방침의 변경</h2>
+        <p>본 방침이 업데이트되면 수정된 날짜와 함께 이 URL에 개정판이 게시됩니다. 변경 후에도 앱을 계속 사용하면 개정된 방침에 동의하는 것으로 간주됩니다.</p>
+
+        <h2>문의</h2>
+        <p>본 개인정보 처리방침에 대해 궁금한 점이 있으시면 <a href="mailto:snapgpx@icloud.com">snapgpx@icloud.com</a>으로 연락해 주세요.</p>
+    </article>
+</div>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 SnapGPX</p>
+    </div>
+</footer>
+
+</body>
+</html>

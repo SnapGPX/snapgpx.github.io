@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de confidentialité — SnapGPX</title>
+    <meta name="description" content="Politique de confidentialité de SnapGPX. Découvrez comment nous gérons vos données d'entraînement, l'accès à HealthKit et l'intégration Strava.">
+    <meta name="theme-color" content="#2D6A4F" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#52B788" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📍</text></svg>">
+    <style>
+        :root {
+            color-scheme: light dark;
+            --bg: #ffffff;
+            --bg-alt: #f5f5f7;
+            --fg: #1d1d1f;
+            --muted: #6e6e73;
+            --accent: #2D7A53;
+            --card-border: #e5e5e7;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #000000;
+                --bg-alt: #1c1c1e;
+                --fg: #f5f5f7;
+                --muted: #a1a1a6;
+                --accent: #52B788;
+                --card-border: #38383a;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        nav {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--card-border);
+            backdrop-filter: saturate(180%) blur(20px);
+            background: rgba(255,255,255,0.72);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        @media (prefers-color-scheme: dark) {
+            nav { background: rgba(0,0,0,0.72); }
+        }
+        nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 960px;
+        }
+        .nav-brand {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--fg);
+            text-decoration: none;
+        }
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-left: 1.5rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--fg); }
+
+        .policy {
+            padding: 3rem 0 4rem;
+        }
+        .policy h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+        .policy .updated {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 2.5rem;
+        }
+        .policy h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        .policy p {
+            color: var(--muted);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        .policy ul {
+            color: var(--muted);
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            font-size: 0.95rem;
+        }
+        .policy li {
+            margin-bottom: 0.5rem;
+        }
+        .policy strong {
+            color: var(--fg);
+        }
+        .policy a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .policy a:hover { text-decoration: underline; }
+
+        footer {
+            border-top: 1px solid var(--card-border);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+        footer a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<nav aria-label="Main">
+    <div class="container" style="max-width:960px">
+        <a href="/" class="nav-brand">SnapGPX</a>
+        <div class="nav-links">
+            <a href="/#features">Features</a>
+            <a href="/#strava">Strava</a>
+            <a href="/#how-it-works">How it works</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <article class="policy">
+        <h1>Politique de confidentialit&eacute;</h1>
+        <p class="updated">Derni&egrave;re mise &agrave; jour : 5 avril 2026</p>
+
+        <h2>Aper&ccedil;u</h2>
+        <p>SnapGPX (&laquo; l'Application &raquo;) vous permet d'exporter les entra&icirc;nements enregistr&eacute;s dans Apple Health sous forme de fichiers GPX. Votre vie priv&eacute;e est importante pour nous. Cette politique explique quelles donn&eacute;es l'Application utilise, comment elles sont trait&eacute;es et quels sont vos choix.</p>
+
+        <h2>Donn&eacute;es auxquelles nous acc&eacute;dons</h2>
+        <p>L'Application demande un acc&egrave;s en lecture seule aux donn&eacute;es Apple HealthKit suivantes :</p>
+        <ul>
+            <li><strong>Enregistrements d'entra&icirc;nement</strong> &mdash; type d'activit&eacute;, dur&eacute;e, distance et calories br&ucirc;l&eacute;es.</li>
+            <li><strong>Donn&eacute;es d'itin&eacute;raire</strong> &mdash; coordonn&eacute;es GPS, altitude et horodatages associ&eacute;s &agrave; vos entra&icirc;nements.</li>
+        </ul>
+        <p>L'Application n'acc&egrave;de <strong>pas</strong> &agrave; la fr&eacute;quence cardiaque, au nombre de pas, aux mensurations corporelles ni &agrave; aucun autre type de donn&eacute;es HealthKit au-del&agrave; des entra&icirc;nements et de leurs itin&eacute;raires.</p>
+
+        <h2>Utilisation de vos donn&eacute;es</h2>
+        <ul>
+            <li>Les donn&eacute;es d'entra&icirc;nement et d'itin&eacute;raire sont utilis&eacute;es <strong>uniquement</strong> pour afficher vos entra&icirc;nements dans l'Application et g&eacute;n&eacute;rer des fichiers GPX lorsque vous choisissez de les exporter.</li>
+            <li>Tout le traitement des donn&eacute;es s'effectue <strong>enti&egrave;rement sur votre appareil</strong>.</li>
+            <li>L'Application ne transmet <strong>aucune</strong> donn&eacute;e de sant&eacute; ou de localisation &agrave; des serveurs externes ou &agrave; des tiers.</li>
+        </ul>
+
+        <h2>Int&eacute;gration Strava</h2>
+        <p>SnapGPX propose une int&eacute;gration optionnelle avec Strava pour t&eacute;l&eacute;verser vos entra&icirc;nements directement. Voici comment vos donn&eacute;es sont g&eacute;r&eacute;es :</p>
+        <ul>
+            <li>SnapGPX utilise le protocole <strong>OAuth 2.0</strong> de Strava pour l'authentification. Vos identifiants Strava ne sont jamais vus ni stock&eacute;s par SnapGPX.</li>
+            <li>Les jetons OAuth sont conserv&eacute;s de mani&egrave;re s&eacute;curis&eacute;e dans le <strong>Keychain</strong> de votre appareil. Aucun jeton n'est envoy&eacute; &agrave; un serveur externe.</li>
+            <li>SnapGPX se limite &agrave; <strong>envoyer des donn&eacute;es GPX vers Strava</strong>. L'Application ne lit, ne t&eacute;l&eacute;charge ni ne stocke aucune donn&eacute;e de votre compte Strava.</li>
+            <li>Vous pouvez d&eacute;connecter votre compte Strava &agrave; tout moment depuis l'application. Cela <strong>supprime imm&eacute;diatement tous les jetons stock&eacute;s</strong> de votre appareil.</li>
+            <li>SnapGPX ne dispose d'<strong>aucun serveur</strong>. Tout le traitement s'effectue sur votre iPhone.</li>
+        </ul>
+
+        <h2>Stockage et conservation des donn&eacute;es</h2>
+        <ul>
+            <li>L'Application ne maintient pas sa propre base de donn&eacute;es de sant&eacute;. Elle lit directement depuis Apple HealthKit &agrave; chaque ouverture.</li>
+            <li>Les fichiers GPX export&eacute;s sont enregistr&eacute;s uniquement &agrave; l'endroit que vous choisissez (par ex. Fichiers, AirDrop, e-mail). L'Application n'en conserve pas de copie.</li>
+            <li>Aucune donn&eacute;e ne persiste dans l'Application entre les sessions, hormis vos pr&eacute;f&eacute;rences d'affichage.</li>
+        </ul>
+
+        <h2>Analyse d'utilisation</h2>
+        <p>SnapGPX utilise <strong>TelemetryDeck</strong> pour des statistiques d'utilisation anonymes et respectueuses de la vie priv&eacute;e. Cela nous aide &agrave; comprendre quelles fonctionnalit&eacute;s sont utilis&eacute;es et &agrave; am&eacute;liorer l'application.</p>
+        <ul>
+            <li>TelemetryDeck collecte des <strong>signaux d'utilisation anonymes</strong> (par ex. quels &eacute;crans sont visit&eacute;s, quelles options d'exportation sont utilis&eacute;es). Aucune donn&eacute;e personnelle n'est collect&eacute;e.</li>
+            <li>Un <strong>identifiant d'appareil hach&eacute;</strong> est utilis&eacute; pour compter les utilisateurs uniques. Cet identifiant ne peut pas &ecirc;tre reli&eacute; &agrave; vous ou &agrave; votre appareil.</li>
+            <li>Aucune donn&eacute;e de sant&eacute;, d'entra&icirc;nement, de coordonn&eacute;es GPS ou de localisation n'est jamais transmise &agrave; TelemetryDeck.</li>
+            <li>TelemetryDeck ne vous <strong>suit pas</strong> entre les applications ou les sites web. Aucun SDK publicitaire n'est inclus.</li>
+            <li>En savoir plus sur la <a href="https://telemetrydeck.com/privacy/">politique de confidentialit&eacute; de TelemetryDeck</a>.</li>
+        </ul>
+
+        <h2>Services tiers</h2>
+        <p>L'Application utilise les services tiers suivants :</p>
+        <ul>
+            <li><strong>TelemetryDeck</strong> &mdash; analyse d'utilisation anonyme (voir ci-dessus).</li>
+            <li><strong>Strava</strong> &mdash; t&eacute;l&eacute;versement optionnel d'entra&icirc;nements via OAuth (voir ci-dessus).</li>
+        </ul>
+        <p>Aucun SDK publicitaire ou de suivi n'est inclus. Aucune donn&eacute;e n'est vendue &agrave; des tiers.</p>
+
+        <h2>Donn&eacute;es de localisation dans les exports GPX</h2>
+        <p>Les fichiers GPX contiennent les coordonn&eacute;es GPS de vos itin&eacute;raires d'entra&icirc;nement. Une fois export&eacute;s, ces fichiers sont sous votre contr&ocirc;le. Soyez vigilant lorsque vous partagez des fichiers GPX, car ils r&eacute;v&egrave;lent les lieux o&ugrave; vous vous &ecirc;tes entra&icirc;n&eacute;.</p>
+
+        <h2>Vie priv&eacute;e des enfants</h2>
+        <p>L'Application ne s'adresse pas aux enfants de moins de 13 ans. Nous ne collectons pas sciemment d'informations personnelles aupr&egrave;s d'enfants.</p>
+
+        <h2>Vos choix</h2>
+        <ul>
+            <li>Vous pouvez r&eacute;voquer l'acc&egrave;s &agrave; HealthKit &agrave; tout moment dans <strong>R&eacute;glages &gt; Confidentialit&eacute; et s&eacute;curit&eacute; &gt; Sant&eacute;</strong> sur votre appareil.</li>
+            <li>Vous pouvez d&eacute;connecter Strava &agrave; tout moment depuis les r&eacute;glages de l'application.</li>
+            <li>La r&eacute;vocation de l'acc&egrave;s signifie que l'Application ne pourra plus afficher ni exporter vos entra&icirc;nements.</li>
+        </ul>
+
+        <h2>Modifications de cette politique</h2>
+        <p>Si nous mettons &agrave; jour cette politique, la version r&eacute;vis&eacute;e sera publi&eacute;e &agrave; cette adresse avec une date de mise &agrave; jour. L'utilisation continue de l'Application apr&egrave;s toute modification vaut acceptation de la politique r&eacute;vis&eacute;e.</p>
+
+        <h2>Contact</h2>
+        <p>Si vous avez des questions concernant cette politique de confidentialit&eacute;, contactez-nous &agrave; <a href="mailto:snapgpx@icloud.com">snapgpx@icloud.com</a>.</p>
+    </article>
+</div>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 SnapGPX</p>
+    </div>
+</footer>
+
+</body>
+</html>

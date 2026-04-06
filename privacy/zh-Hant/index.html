@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隱私權政策 — SnapGPX</title>
+    <meta name="description" content="SnapGPX 隱私權政策。了解我們如何處理您的體能訓練資料、HealthKit 存取權限及 Strava 整合功能。">
+    <meta name="theme-color" content="#2D6A4F" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#52B788" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📍</text></svg>">
+    <style>
+        :root {
+            color-scheme: light dark;
+            --bg: #ffffff;
+            --bg-alt: #f5f5f7;
+            --fg: #1d1d1f;
+            --muted: #6e6e73;
+            --accent: #2D7A53;
+            --card-border: #e5e5e7;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #000000;
+                --bg-alt: #1c1c1e;
+                --fg: #f5f5f7;
+                --muted: #a1a1a6;
+                --accent: #52B788;
+                --card-border: #38383a;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        nav {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--card-border);
+            backdrop-filter: saturate(180%) blur(20px);
+            background: rgba(255,255,255,0.72);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        @media (prefers-color-scheme: dark) {
+            nav { background: rgba(0,0,0,0.72); }
+        }
+        nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 960px;
+        }
+        .nav-brand {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--fg);
+            text-decoration: none;
+        }
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-left: 1.5rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--fg); }
+
+        .policy {
+            padding: 3rem 0 4rem;
+        }
+        .policy h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+        .policy .updated {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 2.5rem;
+        }
+        .policy h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        .policy p {
+            color: var(--muted);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        .policy ul {
+            color: var(--muted);
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            font-size: 0.95rem;
+        }
+        .policy li {
+            margin-bottom: 0.5rem;
+        }
+        .policy strong {
+            color: var(--fg);
+        }
+        .policy a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .policy a:hover { text-decoration: underline; }
+
+        footer {
+            border-top: 1px solid var(--card-border);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+        footer a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<nav aria-label="Main">
+    <div class="container" style="max-width:960px">
+        <a href="/" class="nav-brand">SnapGPX</a>
+        <div class="nav-links">
+            <a href="/#features">Features</a>
+            <a href="/#strava">Strava</a>
+            <a href="/#how-it-works">How it works</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <article class="policy">
+        <h1>隱私權政策</h1>
+        <p class="updated">最後更新日期：2026 年 4 月 5 日</p>
+
+        <h2>概述</h2>
+        <p>SnapGPX（以下簡稱「本 App」）可讓您將 Apple 健康中記錄的體能訓練匯出為 GPX 檔案。我們非常重視您的隱私。本政策說明本 App 會存取哪些資料、如何使用這些資料，以及您的選擇權。</p>
+
+        <h2>我們存取的資料</h2>
+        <p>本 App 會要求以唯讀方式存取以下 Apple HealthKit 資料：</p>
+        <ul>
+            <li><strong>體能訓練記錄</strong> — 活動類型、持續時間、距離及消耗的熱量。</li>
+            <li><strong>體能訓練路線資料</strong> — 與您的體能訓練相關的 GPS 座標、海拔高度及時間戳記。</li>
+        </ul>
+        <p>本 App <strong>不會</strong>存取心率、步數、身體測量數據或體能訓練及其路線以外的任何其他 HealthKit 資料類型。</p>
+
+        <h2>您的資料如何被使用</h2>
+        <ul>
+            <li>體能訓練及路線資料<strong>僅用於</strong>在 App 中顯示您的體能訓練，以及在您選擇匯出時產生 GPX 檔案。</li>
+            <li>所有資料處理<strong>完全在您的裝置上</strong>進行。</li>
+            <li>本 App <strong>不會</strong>將任何健康或位置資料傳輸至外部伺服器或第三方。</li>
+        </ul>
+
+        <h2>Strava 整合</h2>
+        <p>SnapGPX 提供可選的 Strava 整合功能，可直接上傳體能訓練。以下是您的資料處理方式：</p>
+        <ul>
+            <li>SnapGPX 使用 Strava 的 <strong>OAuth 2.0</strong> 進行驗證。SnapGPX 絕不會查看或儲存您的 Strava 登入憑證。</li>
+            <li>OAuth 權杖安全地儲存在您裝置的 <strong>Keychain</strong> 中。不會有任何權杖被傳送至外部伺服器。</li>
+            <li>SnapGPX 僅會<strong>將 GPX 資料上傳至 Strava</strong>。它不會讀取、下載或儲存您 Strava 帳號中的任何資料。</li>
+            <li>您可以隨時在 App 內中斷 Strava 帳號的連結。這會立即<strong>刪除裝置上所有已儲存的權杖</strong>。</li>
+            <li>SnapGPX <strong>沒有後端伺服器</strong>。所有處理都在您的 iPhone 上進行。</li>
+        </ul>
+
+        <h2>資料儲存與保留</h2>
+        <ul>
+            <li>本 App 不會自行維護您的健康資料資料庫。每次您開啟 App 時，它都會直接從 Apple HealthKit 讀取資料。</li>
+            <li>您匯出的 GPX 檔案僅儲存在您選擇分享或儲存的位置（例如「檔案」、AirDrop、電子郵件）。本 App 不會保留副本。</li>
+            <li>除了您的顯示偏好設定外，App 在工作階段之間不會保留任何資料。</li>
+        </ul>
+
+        <h2>分析</h2>
+        <p>SnapGPX 使用 <strong>TelemetryDeck</strong> 進行匿名、注重隱私的使用分析。這有助於我們了解哪些功能被使用並改善 App。</p>
+        <ul>
+            <li>TelemetryDeck 收集<strong>匿名使用訊號</strong>（例如造訪了哪些畫面、使用了哪些匯出選項）。不會收集任何個人資料。</li>
+            <li>使用<strong>雜湊裝置識別碼</strong>來計算獨立使用者數量。此識別碼無法回溯關聯到您或您的裝置。</li>
+            <li>任何健康資料、體能訓練資料、GPS 座標或位置資訊都不會傳送至 TelemetryDeck。</li>
+            <li>TelemetryDeck <strong>不會</strong>跨 App 或網站追蹤您。不包含任何廣告 SDK。</li>
+            <li>了解更多請參閱 <a href="https://telemetrydeck.com/privacy/">TelemetryDeck 的隱私權政策</a>。</li>
+        </ul>
+
+        <h2>第三方服務</h2>
+        <p>本 App 使用以下第三方服務：</p>
+        <ul>
+            <li><strong>TelemetryDeck</strong> — 匿名使用分析（詳見上方說明）。</li>
+            <li><strong>Strava</strong> — 透過 OAuth 進行可選的體能訓練上傳（詳見上方說明）。</li>
+        </ul>
+        <p>不包含任何廣告或追蹤 SDK。不會將資料出售給第三方。</p>
+
+        <h2>GPX 匯出中的位置資料</h2>
+        <p>GPX 檔案包含您體能訓練路線中的 GPS 座標。匯出後，這些檔案由您自行管理。分享 GPX 檔案時請謹慎，因為它們會揭露您運動的地點。</p>
+
+        <h2>兒童隱私</h2>
+        <p>本 App 並非針對 13 歲以下的兒童設計。我們不會有意收集兒童的個人資訊。</p>
+
+        <h2>您的選擇</h2>
+        <ul>
+            <li>您可以隨時在裝置的<strong>「設定」&gt;「隱私權與安全性」&gt;「健康」</strong>中撤銷 HealthKit 存取權限。</li>
+            <li>您可以隨時在 App 的設定中中斷 Strava 連結。</li>
+            <li>撤銷存取權限後，本 App 將無法再顯示或匯出您的體能訓練。</li>
+        </ul>
+
+        <h2>本政策的變更</h2>
+        <p>如果我們更新本政策，修訂版本將以更新的日期發布在此網址。在變更後繼續使用本 App 即表示接受修訂後的政策。</p>
+
+        <h2>聯絡我們</h2>
+        <p>如果您對本隱私權政策有任何疑問，請透過 <a href="mailto:snapgpx@icloud.com">snapgpx@icloud.com</a> 與我們聯絡。</p>
+    </article>
+</div>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 SnapGPX</p>
+    </div>
+</footer>
+
+</body>
+</html>
